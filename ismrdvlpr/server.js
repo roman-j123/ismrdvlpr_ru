@@ -1,2 +1,2 @@
-import strapi from '@strapi/strapi';
+const strapi = requre('@strapi/strapi');
 strapi().start();
