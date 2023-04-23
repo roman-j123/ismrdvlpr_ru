@@ -18,7 +18,7 @@
             <router-link 
               :to="{ name: 'AboutPage'}"
               class="navigation__link"
-              >Обо мне</router-link>
+              >Резюме</router-link>
           </li>
         </ul>
       </div>
@@ -67,6 +67,7 @@ export default {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
   }
   .header__name {
     margin: 0 0 0 30px;
@@ -86,7 +87,8 @@ export default {
     text-transform: uppercase;
   }
   .header__description {
-    margin: 0;
+    font-size: .9rem;
+    margin: 0 0 15px 0;
   }
   .header__navigation {
     margin: 0;
@@ -102,6 +104,7 @@ export default {
   }
   .navigation__link {
     text-decoration: none;
+    font-weight: 400;
     color: #1a1110;
   }
   .navigation__link:hover {
@@ -109,5 +112,32 @@ export default {
   }
   .navigation__link_active {
     color: #800080;
+  }
+  @media (max-width: 570px){
+    .header__container {
+      justify-content: center;
+      flex-direction: column;
+    }
+    .header__avatar {
+      width: 150px;
+      height: 150px;
+    }
+    .header__title {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+    .header__description {
+      font-size: .7rem;
+      line-height: .7rem;
+    }
+    .header__avatar {
+      margin: 0 0 15px 0;
+    }
+    .header__name {
+      margin: 0 0 0 0;
+    }
+    .header__navigation {
+      justify-content: center;
+    }
   }
 </style>

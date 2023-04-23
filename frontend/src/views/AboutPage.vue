@@ -1,14 +1,44 @@
 <template>
   <section class="about">
-    <h2 class="about__title">About page</h2>
-    <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains</p>
+    <h2 class="about__title title">Резюме</h2>
+    <div class="about__section resume">
+      <h3 class="resume__title">{{ store.fullname }}</h3>
+      <span>{{ store.birthday }}, Москва</span>
+    </div>
+    <div class="about__section resume">
+      <h3 class="resume__title">Ключевые навыки</h3>
+      <ul class="resume__list list">
+        <li class="list__item" v-for="tech in store.technologies" :key="tech.id">
+          {{ tech.attributes.name }}
+        </li> 
+      </ul>
+    </div>
+    <div class="about__sction resume">
+      <h3 class="resume__title">Портфолио</h3>
+    </div>
+    <div class="about__section resume">
+      <h3 class="resume__title">Повышение квалификации, курсы</h3>
+      <ul class="resume__list list list_courses">
+        <li class="list__item list__item_course" v-for:="course in store.courses" :key="course.id">
+          <h4>{{ course.attributes.title }}</h4>
+          <span>{{ course.attributes.courseName }}</span>
+        </li>
+      </ul>
+    </div>
   </section>
 </template>
 
 <script>
-
+import { useResumeStore } from '../store/useResumeStore';
 export default {
   name: 'AboutPage',
+  setup() {
+    const store = useResumeStore();
+    store.resumeResponse();
+    return {
+      store
+    }
+  }
 }
 </script>
 
@@ -16,10 +46,23 @@ export default {
   .about {
     margin-top: var(--mt);
   }
-  .about__title {
-    margin: 0;
-  }
   p {
     margin: 0;
+  }
+  .resume__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .list_courses {
+    justify-content: space-between;
+  }
+  .list__item {
+    margin: 0 10px 0 0;
+  }
+  .list__item_course {
+    margin: 0 0 0 0;
   }
 </style>

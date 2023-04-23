@@ -20,18 +20,36 @@ export default {
   },
   data() {
     return {
-      version: '0.2.5',
+      version: '0.3',
     }
   }
 }
 </script>
 
 <style>
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./vendor/fonts/Montserrat-Light.ttf');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./vendor/fonts/Montserrat-Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./vendor/fonts/Montserrat-Bold.ttf');
+  font-weight: 700;
+}
 :root {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
   --mt: 60px;
+  --m-title: 15px;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #1a1110;
@@ -40,5 +58,9 @@ export default {
 .container {
   margin: 0 auto;
   width: 80%;
+}
+
+.title {
+  margin: 0 0 var(--m-title) 0;
 }
 </style>

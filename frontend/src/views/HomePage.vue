@@ -7,7 +7,7 @@
         <li class="post__item" v-for="post in getApiData.posts" :key="post.id">
           <article class="article">
             <header class="article__header">
-              <h2 class="article__title">{{ post.attributes.title }}</h2>
+              <h2 class="article__title title">{{ post.attributes.title }}</h2>
             </header>
             {{ post.attributes.text }}
           </article>
@@ -37,7 +37,8 @@ export default {
       })
       .catch((error) => {
         errorMessage.value = error;
-      }); }; 
+      }); 
+    }; 
     onMounted(postsResponse)
     return {
       getApiData,
@@ -62,8 +63,4 @@ export default {
   .post__item:last-child {
     margin: 0;
   }
-  .article__title {
-    margin: 0;
-  }
-
 </style>
