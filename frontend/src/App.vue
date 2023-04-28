@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      version: '0.3',
+      version: '0.3.5',
     }
   }
 }

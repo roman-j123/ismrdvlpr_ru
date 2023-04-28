@@ -28,7 +28,11 @@
         </li>
       </ul>
     </section>
-    <span class="footer__version">version. {{ version }}</span>
+    <section class="footer__container footer__container_version">
+      <span class="footer__version">version. {{ version }}</span>
+      <span class="footer__version">VUE, Pinia, Strapi, Reg.ru VPS</span>
+    </section>
+    
   </footer>
 </template>
 <script>
@@ -74,8 +78,14 @@
     color: #800080;
   }
   .footer__version {
-    margin-left: auto;
     font-size: .7rem;
+    line-height: .7rem;
+  }
+  .footer__container_version {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    text-align: right;
   }
   @media (max-width: 570px) {
     .footer {
