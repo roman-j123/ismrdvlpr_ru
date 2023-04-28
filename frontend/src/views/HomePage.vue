@@ -1,10 +1,10 @@
 <template>
     <main class="main">
-      <div v-if="errorMessage">
-        {{ errorMessage }}
+      <div v-if="store.errorMessage">
+        {{ store.errorMessage }}
       </div>
       <ul class="post__list" v-else>
-        <li class="post__item" v-for="post in getApiData.posts" :key="post.id">
+        <li class="post__item" v-for="post in store.posts" :key="post.id">
           <article class="article">
             <header class="article__header">
               <h2 class="article__title title">{{ post.attributes.title }}</h2>
@@ -17,34 +17,16 @@
 </template>
 
 <script>
-import { ref, reactive, onMounted } from 'vue';
-import axios from 'axios';
-
-
+import { usePostsStore } from '../store/usePostsStore';
 export default {
   name: "HomePage",
-
   setup() {
-    const API_URL = process.env.VUE_APP_API_URL;
-    const getApiData = reactive({
-      posts: [],
-    });
-    let errorMessage = ref(null);
-    const postsResponse = () => { 
-      axios.get(`${API_URL}/api/posts?sort=publishedAt:desc`)
-      .then((response) => {
-        getApiData.posts = response.data.data;
-      })
-      .catch((error) => {
-        errorMessage.value = error;
-      }); 
-    }; 
-    onMounted(postsResponse)
+    const store = usePostsStore();
+    store.postsResponse();
     return {
-      getApiData,
-      errorMessage,
+      store
     }
-  },
+  }
 }
 </script>
 

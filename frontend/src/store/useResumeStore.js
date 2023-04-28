@@ -15,7 +15,6 @@ export const useResumeStore = defineStore('resume', {
       axios.get(`${API_URL}/api/resume?populate=*`)
         .then((response) => {
           const resumeData = response.data.data.attributes;
-          console.log(resumeData);
           this.fullname = resumeData.fullname;
           this.birthday = resumeData.birthday;
           this.lookingJob = resumeData.lookingJob;
