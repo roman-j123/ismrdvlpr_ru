@@ -5,6 +5,7 @@ import 'normalize.css/normalize.css'
 import App from './App.vue';
 import AboutPage from './views/AboutPage.vue';
 import HomePage from './views/HomePage.vue';
+import PageNotFound from './views/NotFoundPage.vue';
 
 const router = createRouter({
   linkActiveClass: 'navigation__link_active',
@@ -19,6 +20,11 @@ const router = createRouter({
       path: '/about',
       name: 'AboutPage',
       component: AboutPage,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'PageNotFound',
+      component: PageNotFound
     }
   ],
   history: createWebHistory()
