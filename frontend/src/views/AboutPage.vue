@@ -27,7 +27,7 @@
       <ul class="resume__list list list_courses">
         <li class="list__item list__item_course" v-for:="course in store.courses" :key="course.id">
           <h4 class="list__item-header">{{ course.attributes.title }}</h4>
-          <span>{{ course.attributes.courseName }}</span>
+          <span class="list__item-text">{{ course.attributes.courseName }}</span>
         </li>
       </ul>
     </div>
@@ -94,5 +94,24 @@ export default {
   }
   .list__item-header {
     margin: 0;
+  }
+
+  @media (max-width: 570px) {
+    .resume__title {
+      font-size: .9rem;
+      line-height: .9rem;
+    }
+    .list__item_course {
+      margin: 0 0 20px 0;
+    }
+    .list__item-header {
+      margin: 0 0 5px 0;
+      font-size: 1.1rem;
+      line-height: 1.1rem;
+    }
+    .list__item-text {
+      font-size: .8rem;
+      line-height: .8rem;
+    }
   }
 </style>
