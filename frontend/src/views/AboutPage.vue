@@ -26,7 +26,7 @@
       <h3 class="resume__title">Повышение квалификации, курсы</h3>
       <ul class="resume__list list list_courses">
         <li class="list__item list__item_course" v-for:="course in store.courses" :key="course.id">
-          <h4>{{ course.attributes.title }}</h4>
+          <h4 class="list__item-header">{{ course.attributes.title }}</h4>
           <span>{{ course.attributes.courseName }}</span>
         </li>
       </ul>
@@ -84,6 +84,15 @@ export default {
     margin: 0 10px 0 0;
   }
   .list__item_course {
+    padding: 20px 10px;
     margin: 0 0 0 0;
+    max-width: 280px;
+    width: 100%;
+    background-color: #f8f4ff;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  .list__item-header {
+    margin: 0;
   }
 </style>
