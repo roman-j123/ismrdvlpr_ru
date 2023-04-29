@@ -2,7 +2,13 @@
   <section class="about">
     <h2 class="about__title title">Резюме</h2>
     <div class="about__section resume">
-      <h3 class="resume__title">{{ store.fullname }}</h3>
+      <h3 class="resume__title">
+        <span 
+        class="resume__lookingjob"
+        :class="{ 'resume__lookingjob_true': store.lookingJob === true }">
+        </span>
+        {{ store.fullname }}
+      </h3>
       <span>{{ store.birthday }}, Москва</span>
     </div>
     <div class="about__section resume">
@@ -49,12 +55,27 @@ export default {
   p {
     margin: 0;
   }
+  .resume__title {
+    display: flex;
+    align-items: center;
+  }
   .resume__list {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+  }
+  .resume__lookingjob {
+    margin: 0 10px 0 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: red;
+  }
+  .resume__lookingjob_true {
+    background-color: green;
   }
   .list_courses {
     justify-content: space-between;
