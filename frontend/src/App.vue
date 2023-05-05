@@ -5,22 +5,33 @@
     <AppFooter 
       :version="this.version"
     />
+    <transition name="modal">
+      <AppModal 
+        v-if="modal.modalState === true"
+        :data="modal.modalData"
+      />
+  </transition>
   </section>
 </template>
 
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
+import AppModal from './components/AppModal.vue';
+import { useModalStore } from './store/useModalStore';
 
 export default {
   name: 'App',
   components: {
     AppHeader,
     AppFooter,
+    AppModal
   },
   data() {
+    const modal = useModalStore();
     return {
-      version: '0.3.5',
+      version: '0.4',
+      modal,
     }
   }
 }
@@ -54,13 +65,24 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #1a1110;
 }
-
+.overflow {
+  overflow: hidden;
+}
 .container {
-  margin: 0 auto;
+  margin: var(--mt) auto 0;
   width: 80%;
 }
 
 .title {
   margin: 0 0 var(--m-title) 0;
+}
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity .335s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
 }
 </style>

@@ -12,7 +12,7 @@ export const useResumeStore = defineStore('resume', {
   }),
   actions: {
     resumeResponse() {
-      axios.get(`${API_URL}/api/resume?populate=*`)
+      axios.get(`${API_URL}/api/resume?populate[courses][populate]=*&populate[technologies][populate]=*`)
         .then((response) => {
           const resumeData = response.data.data.attributes;
           this.fullname = resumeData.fullname;

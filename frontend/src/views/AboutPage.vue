@@ -27,7 +27,11 @@
       <ul class="resume__list list list_courses">
         <li class="list__item list__item_course" v-for:="course in store.courses" :key="course.id">
           <h4 class="list__item-header">{{ course.attributes.title }}</h4>
-          <span class="list__item-text">{{ course.attributes.courseName }}</span>
+          <button 
+            class="list__item-btn"
+            @click="modal.toggleModal(course.attributes)">
+            Подробнее
+          </button>
         </li>
       </ul>
     </div>
@@ -36,13 +40,18 @@
 
 <script>
 import { useResumeStore } from '../store/useResumeStore';
+import { useModalStore } from '../store/useModalStore';
+
 export default {
   name: 'AboutPage',
+
   setup() {
     const store = useResumeStore();
+    const modal = useModalStore();
     store.resumeResponse();
     return {
-      store
+      store,
+      modal
     }
   }
 }
@@ -86,14 +95,38 @@ export default {
   .list__item_course {
     padding: 20px 10px;
     margin: 0 0 0 0;
-    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 360px;
     width: 100%;
     background-color: #f8f4ff;
+    background-image: url('../img/certificate.svg');
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+    background-size: 10%;
+    background-origin: border-box;
     box-sizing: border-box;
     border-radius: 5px;
   }
   .list__item-header {
-    margin: 0;
+    margin: 0 0 10px 0;
+  }
+  .list__item-text {
+    margin: 0 0 10px 0;
+  }
+  .list__item-btn {
+    padding: 10px 0;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #800080;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    cursor: pointer;
   }
 
   @media (max-width: 570px) {
@@ -102,16 +135,12 @@ export default {
       line-height: .9rem;
     }
     .list__item_course {
+      padding: 10px 5px;
       margin: 0 0 20px 0;
     }
     .list__item-header {
-      margin: 0 0 5px 0;
       font-size: 1.1rem;
       line-height: 1.1rem;
-    }
-    .list__item-text {
-      font-size: .8rem;
-      line-height: .8rem;
     }
   }
 </style>

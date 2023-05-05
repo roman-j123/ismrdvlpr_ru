@@ -60,9 +60,6 @@ export default {
 }
 </script>
 <style>
-  .header {
-    margin-top: var(--mt);
-  }
   .header__container {
     display: flex;
     justify-content: flex-start;
