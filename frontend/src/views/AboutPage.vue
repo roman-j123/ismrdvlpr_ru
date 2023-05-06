@@ -74,6 +74,7 @@ export default {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
   }
   .resume__lookingjob {
     margin: 0 10px 0 0;
@@ -87,10 +88,13 @@ export default {
     background-color: green;
   }
   .list_courses {
+    gap: 10px;
     justify-content: space-between;
   }
   .list__item {
-    margin: 0 10px 0 0;
+    padding: 5px 10px;
+    background-color: #f8f4ff;
+    border-radius: 3px;
   }
   .list__item_course {
     padding: 20px 10px;
@@ -99,7 +103,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    max-width: 360px;
+    max-width: 390px;
     width: 100%;
     background-color: #f8f4ff;
     background-image: url('../img/certificate.svg');
@@ -117,16 +121,22 @@ export default {
     margin: 0 0 10px 0;
   }
   .list__item-btn {
-    padding: 10px 0;
-    width: 80%;
+    padding: 12px 0;
+    width: 70%;
     margin: 0 auto;
     background-color: #800080;
     color: #ffffff;
-    border: none;
+    border: 2px solid #f8f4ff;
     outline: none;
     box-sizing: border-box;
     border-radius: 5px;
     cursor: pointer;
+    transition: .2s ease-in-out;
+  }
+  .list__item-btn:hover {
+    background-color: #f8f4ff;
+    color: #800080;
+    border: 2px solid #800080;
   }
 
   @media (max-width: 570px) {
@@ -134,11 +144,14 @@ export default {
       font-size: .9rem;
       line-height: .9rem;
     }
+    .list_courses {
+      gap: 20px;
+    }
     .list__item_course {
       padding: 10px 5px;
-      margin: 0 0 20px 0;
     }
     .list__item-header {
+      margin: 0 0 25px 0;
       font-size: 1.1rem;
       line-height: 1.1rem;
     }

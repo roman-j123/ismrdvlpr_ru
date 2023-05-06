@@ -70,7 +70,8 @@ export default {
 }
 .container {
   margin: var(--mt) auto 0;
-  width: 80%;
+  max-width: 792px;
+  width: 100%;
 }
 
 .title {
@@ -78,11 +79,17 @@ export default {
 }
 .modal-enter-active,
 .modal-leave-active {
-  transition: opacity .335s ease;
+  transition: opacity .2s ease;
 }
 
 .modal-enter-from,
 .modal-leave-to {
   opacity: 0;
+}
+
+@media (max-width: 570px) {
+  .container {
+    width: 80%;
+  }
 }
 </style>
