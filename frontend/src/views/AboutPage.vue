@@ -151,9 +151,11 @@ export default {
       padding: 10px 5px;
     }
     .list__item-header {
-      margin: 0 0 25px 0;
+      width: 70%;
+      margin: 0 auto 25px auto;
       font-size: 1.1rem;
       line-height: 1.1rem;
+      text-align: center;
     }
   }
 </style>

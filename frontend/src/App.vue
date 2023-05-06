@@ -30,7 +30,7 @@ export default {
   data() {
     const modal = useModalStore();
     return {
-      version: '0.4',
+      version: '0.4.5',
       modal,
     }
   }
@@ -89,7 +89,7 @@ export default {
 
 @media (max-width: 570px) {
   .container {
-    width: 80%;
+    width: 90%;
   }
 }
 </style>

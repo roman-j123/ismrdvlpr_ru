@@ -54,14 +54,14 @@ export default {
   }
   .modal__close {
     margin-left: auto;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border: none;
     outline: none;
     cursor: pointer;
     background-color: transparent;
     background-image: url('../img/close.svg');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
