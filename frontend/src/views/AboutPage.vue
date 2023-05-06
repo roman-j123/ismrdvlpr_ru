@@ -104,14 +104,14 @@ export default {
     background-color: #f8f4ff;
     background-image: url('../img/certificate.svg');
     background-repeat: no-repeat;
-    background-position: 5px 5px;
+    background-position: 5px 10px;
     background-size: 10%;
     background-origin: border-box;
     box-sizing: border-box;
     border-radius: 5px;
   }
   .list__item-header {
-    margin: 0 0 10px 0;
+    margin: 0 0 20px 0;
   }
   .list__item-text {
     margin: 0 0 10px 0;
