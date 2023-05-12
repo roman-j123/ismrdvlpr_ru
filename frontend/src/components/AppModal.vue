@@ -6,20 +6,30 @@
         @click="modal.toggleModal()"
       ></button>
       <h1 class="modal__title">{{ data.title }}</h1>
-      <p class="modal__text">{{ data.courseName }}</p>
+      <figure class="modal__figure">
+        <img 
+          class="modal__image" 
+          :src="getImageUrl(data.certificate.data.attributes.url)" 
+          :alt="data.courseName">
+        <figcaption class="modal__text">{{ data.courseName }}</figcaption>
+      </figure>
+      
     </div>
   </section>  
 </template>
 
 <script>
+import { storeToRefs } from 'pinia';
 import { useModalStore } from '../store/useModalStore'
 export default {
   name: 'AppModal',
   props: ['data'],
   setup() {
     const modal = useModalStore();
+    const { getImageUrl } = storeToRefs(modal);
     return {
-      modal
+      modal,
+      getImageUrl
     }
   }
 }
@@ -48,6 +58,16 @@ export default {
     flex-direction: column;
     border-radius: 7px;
     box-sizing: border-box;
+  }
+  .modal__figure {
+    margin: 0;
+  }
+  .modal__image {
+    max-width: 470px;
+    width: 100%;
+    max-height: 420px;
+    height: 100%;
+    object-fit: contain;
   }
   .modal__title {
     margin: 0;

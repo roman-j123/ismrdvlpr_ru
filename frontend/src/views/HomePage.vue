@@ -42,7 +42,7 @@ export default {
   }
   .wisdom {
     margin: 0 0 var(--mt) 0;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-left: 5px solid #800080;
     box-sizing: border-box;
   }
@@ -53,7 +53,7 @@ export default {
     font-weight: 400;
   }
   .wisdom__work {
-    padding: 0 0 5px 0;
+    padding: 0 0 6px 0;
     box-shadow: 0 5px 0px 0 black;
   }
   .post__list {
@@ -80,8 +80,8 @@ export default {
       box-shadow: none;
     }
     .article__title {
-      font-size: 1.1rem;
-      line-height: 1.2rem;
+      font-size: 1.17rem;
+      line-height: 1.27rem;
     }
   }
 </style>
