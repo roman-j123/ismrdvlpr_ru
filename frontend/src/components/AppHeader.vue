@@ -10,9 +10,16 @@
         <ul class="header__navigation navigation">
           <li class="navigation__item">
             <router-link 
-              :to="{ name: 'HomePage' }"
+              :to="{ name: 'FirstPage' }"
               class="navigation__link"
-              >На главную</router-link>
+              >Главная</router-link>
+          </li>
+          <li class="navigation__item">
+            <router-link
+              :to="{ name: 'HomePage' }"
+              class="navigation__link navigation__link_notes"
+            >Заметки
+            </router-link>
           </li>
           <li class="navigation__item">
             <router-link 
@@ -104,6 +111,12 @@ export default {
     font-weight: 400;
     color: #1a1110;
   }
+
+  .navigation__link_notes::before {
+    content: '\1F4DD';
+    margin: 0 5px 0 0;
+  }
+
   .navigation__link:hover {
     color: #800080;
   }
@@ -135,6 +148,9 @@ export default {
     }
     .header__navigation {
       justify-content: center;
+    }
+    .navigation__item {
+      margin: 0 15px 0 0;
     }
   }
 </style>

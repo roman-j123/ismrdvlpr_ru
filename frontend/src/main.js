@@ -5,6 +5,7 @@ import 'normalize.css/normalize.css'
 import App from './App.vue';
 import AboutPage from './views/AboutPage.vue';
 import HomePage from './views/HomePage.vue';
+import FirstPage from './views/FirstPage.vue';
 import PageNotFound from './views/NotFoundPage.vue';
 
 const router = createRouter({
@@ -13,6 +14,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'FirstPage',
+      component: FirstPage
+    },
+    {
+      path: '/notes',
       name: 'HomePage',
       component: HomePage
     },
