@@ -36,4 +36,17 @@ export default {
   padding: 0 0 6px 0;
   box-shadow: 0 5px 0px 0 black;
 }
+@media (max-width: 570px) {
+  .wisdom {
+    padding: 5px 10px;
+    border-left: 2px solid #800080;
+  }
+  .wisdom__text {
+    font-size: 1.2rem;
+    line-height: 1.3rem;
+  }
+  .wisdom__work {
+    box-shadow: none;
+  }
+}
 </style>
