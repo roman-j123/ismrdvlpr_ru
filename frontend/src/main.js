@@ -6,6 +6,7 @@ import App from './App.vue';
 import AboutPage from './views/AboutPage.vue';
 import HomePage from './views/HomePage.vue';
 import FirstPage from './views/FirstPage.vue';
+import NotePage from './views/NotePage.vue';
 import PageNotFound from './views/NotFoundPage.vue';
 
 const router = createRouter({
@@ -26,6 +27,12 @@ const router = createRouter({
       path: '/about',
       name: 'AboutPage',
       component: AboutPage,
+    },
+    {
+      path: '/note/:id',
+      name: 'NotePage',
+      props: true,
+      component: NotePage,
     },
     {
       path: '/:pathMatch(.*)*',

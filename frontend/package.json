@@ -13,6 +13,7 @@
     "normalize.css": "^8.0.1",
     "pinia": "^2.0.35",
     "vue": "^3.2.13",
+    "vue-markdown-render": "^2.0.1",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

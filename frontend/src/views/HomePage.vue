@@ -7,9 +7,17 @@
         <li class="post__item" v-for="post in store.posts" :key="post.id">
           <article class="article">
             <header class="article__header">
-              <h2 class="article__title title">{{ post.attributes.title }}</h2>
+              <router-link 
+                :key="post.id"
+                :to="{
+                  name: 'NotePage', 
+                  params: {
+                    id: post.id,
+                  },
+                }">
+                <h2 class="article__title title">{{ post.attributes.title }}</h2>
+              </router-link>
             </header>
-            {{ post.attributes.text }}
           </article>
         </li>
       </ul>
@@ -22,6 +30,7 @@ export default {
   name: "HomePage",
   setup() {
     const store = usePostsStore();
+    store.errorMessage = null;
     store.postsResponse();
     return {
       store

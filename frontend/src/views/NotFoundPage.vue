@@ -1,5 +1,5 @@
 <template>
-  <section class="notFound">
+  <section>
     <h2>404: Page not found</h2>
   </section>
 </template>
