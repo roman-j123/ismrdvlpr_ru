@@ -7,7 +7,7 @@
     <div v-if="store.errorMessage">
       <not-found-page/>
     </div>
-    <h2 class="note__header">{{ store.note.title }}</h2>
+    <h2 v-else class="note__header">{{ store.note.title }}</h2>
       <vue-markdown 
       :source="getPostText" 
       :options="{
@@ -27,10 +27,13 @@ export default {
   name: 'NotePage',
   props: ['id'],
   setup(props) {
+    // исправить ошибку при переходе на несуществующую страницу (консоль)
     const store = usePostsStore();
-    store.getPostData(props.id);
+    if(!store.errorMessage) {
+      store.getPostData(props.id);
+    }
     const getPostText = computed(() => {
-      return store.note.text === undefined ? '' : store.note.text;
+      return !store.note.text ? '' : store.replaceUploadUrl;
     });
     return {
       store,
@@ -40,7 +43,6 @@ export default {
   methods: {
     returnToPage() {
       this.$router.push({ path: '/notes', replace: true }); 
-      this.store.$reset();
     }
   }
 }

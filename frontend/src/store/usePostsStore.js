@@ -7,7 +7,16 @@ export const usePostsStore = defineStore('posts', {
     posts: [],
     note: {},
     errorMessage: '',
+    API_URL: process.env.VUE_APP_API_URL,
   }),
+  getters: {
+    replaceUploadUrl: (state) => {
+      const regex = /\/uploads\//g;
+      if (state.note.text) {
+        return state.note.text.replace(regex, state.API_URL + '/uploads/');
+      }
+    }
+  },
   actions: {
     postsResponse() {
       axios.get(`${API_URL}/api/posts?sort=publishedAt:desc`)
