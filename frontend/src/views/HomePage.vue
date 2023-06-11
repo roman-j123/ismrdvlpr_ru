@@ -67,11 +67,9 @@ export default {
     color: black;
   }
   .article__title {
-    display: inline-block;
-    padding: 0 0 2px 0;
-    margin: 0 0 5px 0;
+    display: inline;
     font-size: 2.3rem;
-    line-height: 2.3rem;
+    line-height: 2.7rem;
     text-transform: uppercase;
     text-decoration: none;
     box-shadow: 0 5px #800080;
@@ -82,14 +80,17 @@ export default {
   }
   .article__date {
     font-size: .9rem;
-    line-height: .9rem;
+    line-height: 1.5rem;
     color: #800080;
     font-weight: 700;
   }
   @media (max-width: 570px) {
     .article__title {
       font-size: 1.5rem;
-      line-height: 1.5rem;
+      line-height: 2rem;
+    }
+    .article__date {
+      line-height: 1.3rem;
     }
   }
 </style>
