@@ -7,7 +7,8 @@
         <li class="post__item" v-for="post in store.posts" :key="post.id">
           <article class="article">
             <header class="article__header">
-              <router-link 
+              <router-link
+                class="article__link" 
                 :key="post.id"
                 :to="{
                   name: 'NotePage', 
@@ -15,8 +16,9 @@
                     id: post.id,
                   },
                 }">
-                <h2 class="article__title title">{{ post.attributes.title }}</h2>
+                <h2 class="article__title">{{ post.attributes.title }}</h2>
               </router-link>
+              <span>{{ post.attributes.date }}</span>
             </header>
           </article>
         </li>
@@ -49,27 +51,30 @@ export default {
     padding: 0;
     list-style: none;
   }
-  .post__item {
-    margin-bottom: 30px;
-  }
+  
   .post__item:last-child {
     margin: 0;
   }
+  .article__header {
+    margin: 0 0 var(--m-title) 0;
+  }
+  .article__link {
+    text-decoration: none;
+    color: black;
+  }
+  .article__link:hover {
+    text-decoration: underline;
+  }
+  .article__title {
+    margin: 0 0 0 0;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+  }
   @media (max-width: 570px) {
-    .wisdom {
-      padding: 5px 10px;
-      border-left: 2px solid #800080;
-    }
-    .wisdom__text {
-      font-size: 1.2rem;
-      line-height: 1.3rem;
-    }
-    .wisdom__work {
-      box-shadow: none;
-    }
     .article__title {
-      font-size: 1.17rem;
-      line-height: 1.27rem;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
     }
   }
 </style>

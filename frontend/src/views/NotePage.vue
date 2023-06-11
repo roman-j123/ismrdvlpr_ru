@@ -9,6 +9,7 @@
     </div>
     <h2 v-else class="note__header">{{ store.note.title }}</h2>
       <vue-markdown 
+      class="note__content"
       :source="getPostText" 
       :options="{
         html: true,
@@ -27,7 +28,6 @@ export default {
   name: 'NotePage',
   props: ['id'],
   setup(props) {
-    // исправить ошибку при переходе на несуществующую страницу (консоль)
     const store = usePostsStore();
     if(!store.errorMessage) {
       store.getPostData(props.id);
@@ -42,13 +42,14 @@ export default {
   },
   methods: {
     returnToPage() {
-      this.$router.push({ path: '/notes', replace: true }); 
+      this.$router.push({ path: '/notes', replace: true });
+      this.store.$reset();
     }
   }
-}
+};
 </script>
 
-<style scoped>
+<style>
 .note {
   display: flex;
   flex-direction: column;
@@ -56,6 +57,18 @@ export default {
 }
 .note__header {
   margin: 0 0 30px 0;
+  font-size: 2.3rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+}
+.note__content p > img {
+  margin: 0 auto;
+  display: block;
+  object-fit: cover;
+  max-width: 80%;
+  width: 100%;
+  max-height: auto;
+  height: 100%;
 }
 .note__back {
   padding: 0 20px;
@@ -81,6 +94,10 @@ export default {
   opacity: 1;
 }
 @media (max-width: 1024px) {
+  .note__header {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
   .note__back {
     margin: var(--mt) auto 0 auto;
     order: 3;
@@ -91,6 +108,9 @@ export default {
     width: 100px;
     opacity: 1;
     transform: none;
+  }
+  .note__content p > img {
+    border-radius: 10px;
   }
 }
 </style>
