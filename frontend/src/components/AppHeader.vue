@@ -80,8 +80,8 @@ export default {
   }
   .header__avatar {
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
   }
   .header__title {

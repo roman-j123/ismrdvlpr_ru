@@ -1,13 +1,13 @@
 <template>
   <section class="container">
-    <AppHeader />
-    <router-view />
-    <AppFooter 
-      :version="this.version"
-    />
+      <AppHeader />
+      <router-view />
+      <AppFooter 
+        :version="this.version"
+      />
     <transition name="modal">
       <AppModal 
-        v-if="modal.modalState === true"
+        v-if="modal.modalState"
         :data="modal.modalData"
       />
   </transition>

@@ -18,7 +18,7 @@
                 }">
                 <h2 class="article__title">{{ post.attributes.title }}</h2>
               </router-link>
-              <span>{{ post.attributes.date }}</span>
+              <span class="article__date">{{ post.attributes.date }}</span>
             </header>
           </article>
         </li>
@@ -51,25 +51,40 @@ export default {
     padding: 0;
     list-style: none;
   }
-  
+  .post__item {
+    margin: 0 0 20px 0;
+  }
   .post__item:last-child {
     margin: 0;
   }
   .article__header {
-    margin: 0 0 var(--m-title) 0;
+    display: flex;
+    flex-direction: column;
   }
   .article__link {
+    display: inline-block;
     text-decoration: none;
     color: black;
   }
-  .article__link:hover {
-    text-decoration: underline;
-  }
   .article__title {
-    margin: 0 0 0 0;
-    font-size: 1.8rem;
-    line-height: 1.8rem;
+    display: inline-block;
+    padding: 0 0 2px 0;
+    margin: 0 0 5px 0;
+    font-size: 2.3rem;
+    line-height: 2.3rem;
     text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 5px #800080;
+    transition: .2s ease-in-out;
+  }
+  .article__link:hover .article__title {
+    color: #800080;
+  }
+  .article__date {
+    font-size: .9rem;
+    line-height: .9rem;
+    color: #800080;
+    font-weight: 700;
   }
   @media (max-width: 570px) {
     .article__title {

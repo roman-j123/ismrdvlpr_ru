@@ -14,6 +14,7 @@
       :options="{
         html: true,
         breaks: true,
+        typographer: true,
       }"/>
   </section>
 </template>
