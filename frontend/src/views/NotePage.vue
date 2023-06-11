@@ -62,6 +62,11 @@ export default {
   line-height: 2.3rem;
   text-transform: uppercase;
 }
+.note__content p {
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+}
 .note__content p > img {
   margin: 0 auto;
   display: block;
@@ -72,34 +77,28 @@ export default {
   height: 100%;
 }
 .note__back {
-  padding: 0 20px;
+  display: none;
+  margin: 0 0 30px 0;
+  padding: 0;
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: #00000010;
+  background-color: transparent;
   font-size: 1.5rem;
-
-  position: fixed;
-  top: 50%;
-  left: 0;
-  transform: translate(10px, -50%);
-  height: 70vh;
-
-  border-radius: 10px;
-  transition: .2s ease-in-out;
-  opacity: .4;
+  color: #800080;
+  align-self: flex-start;
+  opacity: 1;
 }
 .note__back:hover {
-  background-color: #00000090;
-  color: #ffffff;
-  opacity: 1;
+  box-shadow: 0 1px #800080;
 }
 @media (max-width: 1024px) {
   .note__header {
     font-size: 1.5rem;
-    line-height: 1.5rem;
+    line-height: 2rem;
   }
   .note__back {
+    display: block;
     margin: var(--mt) auto 0 auto;
     order: 3;
     padding: 0 0;
@@ -109,6 +108,10 @@ export default {
     width: 100px;
     opacity: 1;
     transform: none;
+  }
+  .note__content p {
+    font-size: 1rem;
+    line-height: 1.2rem;
   }
   .note__content p > img {
     border-radius: 10px;
