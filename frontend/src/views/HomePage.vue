@@ -53,6 +53,7 @@ export default {
   }
   .post__item {
     margin: 0 0 20px 0;
+    display: inline-block;
   }
   .post__item:last-child {
     margin: 0;
@@ -62,7 +63,6 @@ export default {
     flex-direction: column;
   }
   .article__link {
-    display: inline-block;
     text-decoration: none;
     color: black;
   }
@@ -72,7 +72,7 @@ export default {
     line-height: 2.7rem;
     text-transform: uppercase;
     text-decoration: none;
-    box-shadow: 0 5px #800080;
+    box-shadow: 0 4px #800080;
     transition: .2s ease-in-out;
   }
   .article__link:hover .article__title {
