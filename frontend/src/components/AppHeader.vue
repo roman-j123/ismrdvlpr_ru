@@ -9,8 +9,8 @@
         </p>
         <ul class="header__navigation navigation">
           <li 
-            v-for="item of navigationLinks" 
-            :key="item.link"
+            v-for="(item, index) of navigationLinks" 
+            :key="index"
             class="navigation__item">
               <router-link 
                 :to="{ name: item.link }"
@@ -77,8 +77,8 @@ export default {
   }
   .header__avatar {
     display: block;
-    width: 150px;
-    height: 150px;
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
     object-fit: cover;
   }
@@ -127,8 +127,9 @@ export default {
       flex-direction: column;
     }
     .header__avatar {
-      width: 150px;
-      height: 150px;
+      margin: 0 0 15px 0;
+      width: 200px;
+      height: 200px;
     }
     .header__title {
       font-size: 2rem;
@@ -137,9 +138,6 @@ export default {
     .header__description {
       font-size: .7rem;
       line-height: .7rem;
-    }
-    .header__avatar {
-      margin: 0 0 15px 0;
     }
     .header__name {
       margin: 0 0 0 0;
