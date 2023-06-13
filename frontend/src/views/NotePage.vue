@@ -109,7 +109,10 @@ export default {
     opacity: 1;
     transform: none;
   }
-  .note__content p {
+  .note__back:hover {
+    box-shadow: none;
+  }
+  .note__content {
     font-size: 1rem;
     line-height: 1.2rem;
   }

@@ -8,24 +8,15 @@
           {{getApiData.page.description}}
         </p>
         <ul class="header__navigation navigation">
-          <li class="navigation__item">
-            <router-link 
-              :to="{ name: 'FirstPage' }"
-              class="navigation__link"
-              >Главная</router-link>
-          </li>
-          <li class="navigation__item">
-            <router-link
-              :to="{ name: 'HomePage' }"
-              class="navigation__link navigation__link_notes"
-            >Заметки
+          <li 
+            v-for="item of navigationLinks" 
+            :key="item.link"
+            class="navigation__item">
+              <router-link 
+                :to="{ name: item.link }"
+                :class="item.link === 'HomePage' ? 'navigation__link navigation__link_notes' : 'navigation__link'"
+                >{{ item.name }}
             </router-link>
-          </li>
-          <li class="navigation__item">
-            <router-link 
-              :to="{ name: 'AboutPage'}"
-              class="navigation__link"
-              >Резюме</router-link>
           </li>
         </ul>
       </div>
@@ -39,6 +30,11 @@ import axios from 'axios';
 export default {
   name: 'AppHeader',
   setup() {
+    const navigationLinks = [
+      {name: 'Главная', link: 'FirstPage' },
+      {name: 'Заметки', link: 'HomePage'},
+      {name: 'Резюме', link: 'AboutPage'}
+  ];
     const API_URL = process.env.VUE_APP_API_URL;
     const getApiData = reactive({
       avatar: null,
@@ -61,7 +57,8 @@ export default {
     onMounted(pageDataResponse);
     return {
       getApiData,
-      errorMessage
+      errorMessage,
+      navigationLinks
     }
   }
 }
@@ -83,6 +80,7 @@ export default {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    object-fit: cover;
   }
   .header__title {
     margin: 0;
