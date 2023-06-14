@@ -25,7 +25,7 @@ export const usePostsStore = defineStore('posts', {
         })
         .catch((error) => {
           this.errorMessage = error;
-        });
+        })
     },
     getPostData(id) {
       axios.get(`${API_URL}/api/posts/${id}`)

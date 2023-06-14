@@ -10,6 +10,13 @@ export const useResumeStore = defineStore('resume', {
     courses: [],
     technologies: [],
   }),
+  getters: {
+    filterShowMainPage(state) {
+      return state.technologies.filter((item) => {
+        return item.attributes.showMainPage === true;
+      });
+    }
+  },
   actions: {
     resumeResponse() {
       axios.get(`${API_URL}/api/resume?populate[courses][populate]=*&populate[technologies][populate]=*`)

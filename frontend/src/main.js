@@ -10,6 +10,12 @@ import NotePage from './views/NotePage.vue';
 import PageNotFound from './views/NotFoundPage.vue';
 
 const router = createRouter({
+  scrollBehavior() {
+    // always scroll to top
+    return {
+      top: 0,
+    }
+  },
   linkActiveClass: 'navigation__link_active',
   linkExactActiveClass: 'navigation__link_active-exact',
   routes: [
